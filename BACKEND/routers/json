@@ -1,0 +1,27 @@
+{
+    "name": "Madega",
+    "decsription":"product 2 decsription",
+    "richDescription":"product 2 richDescription",
+    "image": "some_url",
+    "brand":"Ram monah brand",
+    "price":27000,
+    "category":"63afed0bc58793e796ca0b42",
+    "countInStock":21,
+     "rating":4,
+     "numReviews":3,
+     "isFeatured":false
+},
+{
+    "name": "Madega Mooo",
+    "email":"rsadiki99@gmail.com",
+    "passwordHash":"acha umbea",
+    "phone":"071702378",
+    "country":"Tanzania",
+    "street":"Kinondoni",
+    "apartment":"block45",
+    "city":"Dar es salaam",
+    "zip":"34500"
+
+
+   
+}
