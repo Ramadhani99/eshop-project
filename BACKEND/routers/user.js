@@ -4,6 +4,7 @@ const router=express.Router();
 const {User}=require('../models/user')
 const bcrypt=require('bcryptjs')
 const mongoose=require('mongoose')
+const jwt =require('jsonwebtoken')
 
 router.get(`/`,async (req,res)=>{
     const userList=await User.find().select('-passwordHash')
@@ -17,7 +18,7 @@ router.get('/:id',async(req,res)=>{
     }
     const user=await User.findById(req.params.id).select('-passwordHash')
     if(!user){
-        res.status(500).send("product with give ID not found")
+        res.status(500).send("User not found")
     }else{
         res.status(200).send(user)
     }
@@ -87,12 +88,18 @@ router.put(`/:id`,async (req,res)=>{
 //login
 router.post('/login',async (req,res)=>{
     const user=await User.findOne({email:req.body.email})
+    //get secret for generate token from enviroment variable
+    const secret=process.env.secret
     if(!user){
         res.status(500).send('The user not found')
     }
 
     if(user && bcrypt.compareSync(req.body.password,user.passwordHash)){
-        res.status(200).send('user Authenticated')
+        const token=jwt.sign({
+            userId:user.id,
+            isAdmin:user.isAdmin
+        },secret,{expiresIn:'1d'})//expire time of token
+        res.status(200).send({user:user.email,token:token})
     }else{
         res.status(400).send('password is wrong')
     }

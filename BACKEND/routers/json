@@ -25,3 +25,31 @@
 
    
 }
+
+{
+    "orderItems":[
+        {
+            "quantity":3,
+            "product":"63b0267de42c2c2f5d2c9b13"
+        },
+        {
+            "quantity":4,
+            "product":"63b029164984ce7235c5e10a"
+        }
+
+    ],
+    "phone":"071702378",
+    "country":"Tanzania",
+    "shippingAddress1":"Kinondoni",
+    "shippingAddress2":"block45",
+    "city":"Dar es salaam",
+    "zip":"34500",
+    "status":"pending",
+    "totalPrice":300000,
+    "user":"63b059c17cc298b280032837"
+}
+
+63b6e14fa6b6474184781728
+63b6e14fa6b6474184781728
+
+63b6e14fa6b6474184781729

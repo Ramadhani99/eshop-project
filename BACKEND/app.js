@@ -6,15 +6,24 @@ require('dotenv/config')
 //log events
 const morgan=require('morgan')
 
+//protect server
+const authJwt=require('./helpers/jwt')
+
 //products
 const productsRouter=require('./routers/product')
 const usersRouter=require('./routers/user')
 const orderRouter=require('./routers/order')
 const categoryRouter=require('./routers/category')
+const res = require('express/lib/response')
+const errorHandler=require('./helpers/error-handle')
+
 //json middleware
 app.use(express.json())
 //log request
 app.use(morgan('tiny'))
+app.use(authJwt())
+app.use(errorHandler)
+app.use('/public/uploads',express.static(__dirname+'/public/uploads'))
 
 //log api
 const connection=process.env.CONNECTION_STRING
